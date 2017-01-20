@@ -1,8 +1,10 @@
-%h1 Notes
-
 -@notes.each do |note|
+  %h2= link_to note.title, note
   %p
-    =link_to note.title, note
+    Created
+    =time_ago_in_words( note.created_at )
+    ago
+  %p
     =link_to 'Edit', [:edit, note]
     =link_to 'Delete', note, method: :delete, data:{ confirm:'Are you sure?' }
 

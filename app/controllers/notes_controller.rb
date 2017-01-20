@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  # before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   # GET /notes
   def index
@@ -13,8 +13,8 @@ class NotesController < ApplicationController
 
   # POST /notes
   #   html:   <form action='/notes', method='post' ..>
-  #   rails:  =form_for @note.. when @note.new_record? == true
-  #   router: post '/notes', to: 'notes#create' ...
+  #   rails:  =form_for @notes .. when @notes.new_record? == true
+  #   router: post '/notes', to: 'notes#create'
   def create
 
   end
@@ -30,6 +30,11 @@ class NotesController < ApplicationController
   end
 
   # PATCH/PUT /notes/:id
+  #   html:   <form action='/notes/1', method='patch' ..>
+  #   rails:  =form_for @notes .. when @notes.persisted? == true
+  #   router: match '/posts/1', to: 'notes#update', via: [:patch, :put]
+  #   Router reads :id value from the request and assigns it
+  #   to params hash namesake key (params[:id]) for notes_controller's use
   def update
 
   end

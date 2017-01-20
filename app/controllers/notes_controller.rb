@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   # GET /notes
   def index
-    @notes = Note.order created_at: :desc
+    @notes = Note.where( user: current_user ).order( created_at: :desc )
   end
 
   # GET /notes/new                     (renders /notes/_form)

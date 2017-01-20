@@ -1,0 +1,20 @@
+################################################################################
+1-20-17: #######################################################################
+• Simple User authorization implementation idea/inspiration:
+
+: Remember, devise AUTHENTICATES user; it does NOT provide
+  AUTHORIZATION functionality to authorize User's access to specific actions
+
+: This may be employed?
+
+  NotesController:
+
+    def index
+      @notes = Note.where( user: current_user ).order( created_at: :desc )
+    end
+
+: Write a before_action for member actions that runs after `set_note` and
+  compares note's user against current_user:
+
+    @note.user == current_user
+################################################################################

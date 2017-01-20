@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :set_note, only: :show
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   # GET /notes
   def index
@@ -19,7 +19,7 @@ class NotesController < ApplicationController
     @note = Note.new notes_params
 
     if @note.save notes_params
-      redirect_to @note, notice:'Note created'
+      redirect_to @note, notice:'Note created.'
     else
       render 'new'
     end
@@ -31,7 +31,6 @@ class NotesController < ApplicationController
 
   # GET /notes/:id/edit                (renders /notes/_form)
   def edit
-
   end
 
   # PATCH/PUT /notes/:id
@@ -41,12 +40,17 @@ class NotesController < ApplicationController
   #   Router reads :id value from the request and assigns it
   #   to params hash namesake key (params[:id]) for notes_controller's use
   def update
-
+    if @note.update notes_params
+      redirect_to @note, notice:'Note updated.'
+    else
+      render 'edit'
+    end
   end
 
   # DELETE /notes/:id
   def destroy
-
+    @note.destroy
+    redirect_to notes_path, notice:'Note destroyed.'
   end
 
   private

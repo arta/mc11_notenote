@@ -8,7 +8,7 @@ class NotesController < ApplicationController
 
   # GET /notes/new                     (renders /notes/_form)
   def new
-    @note = Note.new
+    @note = current_user.notes.new
   end
 
   # POST /notes
@@ -16,7 +16,7 @@ class NotesController < ApplicationController
   #   rails:  =form_for @notes .. when @notes.new_record? == true
   #   router: post '/notes', to: 'notes#create'
   def create
-    @note = Note.new notes_params
+    @note = current_user.notes.new notes_params
 
     if @note.save notes_params
       redirect_to @note, notice:'Note created.'

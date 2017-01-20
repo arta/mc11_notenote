@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # root 'ctrl#action' #<= must for devise's redirects
+  get 'welcome/index'
+
+  root 'welcome#index'
 end

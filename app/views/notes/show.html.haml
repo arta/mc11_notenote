@@ -1,5 +1,5 @@
-%h1 Note
+%h1= @note.title
+%p= @note.content
 
-%p= "Note id: #{params[:id]} data shown here"
-
-=link_to 'Edit', edit_note_path
+=link_to 'Edit', [:edit, @note]
+=link_to 'Back', notes_path

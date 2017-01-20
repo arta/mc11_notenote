@@ -1,14 +1,14 @@
 class NotesController < ApplicationController
-  # before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: :show
 
   # GET /notes
   def index
-
+    @notes = Note.order created_at: :desc
   end
 
   # GET /notes/new                     (renders /notes/_form)
   def new
-
+    @note = Note.new
   end
 
   # POST /notes
@@ -16,12 +16,17 @@ class NotesController < ApplicationController
   #   rails:  =form_for @notes .. when @notes.new_record? == true
   #   router: post '/notes', to: 'notes#create'
   def create
+    @note = Note.new notes_params
 
+    if @note.save notes_params
+      redirect_to @note, notice:'Note created'
+    else
+      render 'new'
+    end
   end
 
   # GET /notes/:id
   def show
-
   end
 
   # GET /notes/:id/edit                (renders /notes/_form)
@@ -46,7 +51,7 @@ class NotesController < ApplicationController
 
   private
     def notes_params
-
+      params.require( :note ).permit( :title, :content )
     end
 
     def set_note

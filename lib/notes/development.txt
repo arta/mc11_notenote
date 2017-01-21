@@ -18,6 +18,10 @@
     *= require welcome            <-
     *= require_self
     */
+• Nope, works only if simples css are loaded ...
+
+• FAILS when variables and other sass extras are used ...
+: Hm, Rails got caught cheating here ... ?!
 ################################################################################
 • Simple User authorization implementation idea/inspiration:
 

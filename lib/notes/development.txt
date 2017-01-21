@@ -1,6 +1,23 @@
 ################################################################################
 1-20-17: #######################################################################
 ################################################################################
+• Writing <a> tag (link) in haml for complex link name:
+
+    %a{ href: url_for( model ) }
+      %p= model.attrib
+      %p= model.attrib2
+
+    ==
+
+    %a{ href: model_path( model ) }
+      ...
+
+: Hm, but Rails' pattern is prettier:
+
+    =link_to model do
+      %p= model.attrib
+      ...
+################################################################################
 • Organizing style sheets loading order.
 : May turn out to be an issue if handled by Rails' default application.css?
 : If/when so, check this out:

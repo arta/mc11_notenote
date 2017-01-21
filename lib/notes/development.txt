@@ -1,6 +1,18 @@
 ################################################################################
 1-20-17: #######################################################################
 ################################################################################
+• Rails knows how to render paragraphs on html show pages
+
+    =simple_format @model.attribute_with_content_from_text_area
+
+: And it will format the html with css declarations passed in, try with:
+  http://www.webpagefx.com/web-design/html-ipsum/
+
+: And multiword link names don't break show page even when cut off ?
+: `raw` works similarly, but doesn't seem to apply the css:
+
+    =raw @model.attribute_with_content_from_text_area
+################################################################################
 • Writing <a> tag (link) in haml for complex link name:
 
     %a{ href: url_for( model ) }

@@ -1,5 +1,24 @@
 ################################################################################
 1-20-17: #######################################################################
+################################################################################
+• Organizing style sheets loading order.
+: May turn out to be an issue if handled by Rails' default application.css?
+: If/when so, check this out:
+  http://www.mattboldt.com/organizing-css-and-sass-rails/
+
+• But, it seems like using Rails' way of ordering works fine out of the box.
+: Stylesheets loading order appears respected when given:
+  application.css.scss:
+    /*
+    ...
+    *
+    *= require normalize          <-
+    *= require global               | ........ instead of: `*= require_tree .`
+    *= require notes                |
+    *= require welcome            <-
+    *= require_self
+    */
+################################################################################
 • Simple User authorization implementation idea/inspiration:
 
 : Remember, devise AUTHENTICATES user; it does NOT provide

@@ -1,2 +1,32 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+#banner
+  .banner_content
+    %h1 NoteNote
+    %p Your online notebook. Never forget an idea again.
+    %button= link_to 'Sign Up', new_user_registration_path
+
+#testimonial
+  .wrapper
+    %p.quote The greatest online notebook application. Period.
+    %p.name ~ Mackenzie Child
+
+#callouts
+  #callout_inner
+    .wrapper
+      .callout
+        %h2 Notes
+        %p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .callout
+        %h2 Rocket
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+      .callout
+        %h2 Lightning
+        %p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+#bottom_cta
+  .wrapper
+  %h2 For Realz!
+  %p I want you to sign up... If you don’t. I will find you!
+  %button= link_to "Click Meee!!!", new_user_registration_path
+
+%footer
+  %p &copy; Mackenzie Child
